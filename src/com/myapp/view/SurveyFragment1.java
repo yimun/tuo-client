@@ -24,10 +24,12 @@ import com.myapp.adapter.ListAdapterMicroBlog;
 import com.myapp.adapter.ViewPagerAdapterSurveyImage;
 import com.myapp.base.BaseFragment;
 import com.myapp.base.BaseMessage;
+import com.myapp.base.BaseUi;
 import com.myapp.base.C;
 import com.myapp.model.AppInfo;
 import com.myapp.model.Classify;
 import com.myapp.model.Eio;
+import com.myapp.ui.EioDetail;
 import com.myapp.view.SingleLayoutListView.OnLoadMoreListener;
 import com.myapp.view.SingleLayoutListView.OnRefreshListener;
 
@@ -178,7 +180,10 @@ public class SurveyFragment1 extends BaseFragment implements OnPageChangeListene
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// 此处传回来的position和mAdapter.getItemId()获取的一致;
-				Log.e(TAG, "click position:" + position);
+				Eio eio = eioList.get(position - 1); // position is start from 1,Why?
+				Bundle bd = new Bundle();
+				bd.putSerializable("Eio", eio);
+				((BaseUi)context).overlay(EioDetail.class,bd);
 			}
 		});		
 		mListView.setCanLoadMore(true);

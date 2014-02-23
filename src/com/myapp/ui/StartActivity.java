@@ -26,7 +26,7 @@ public class StartActivity extends Activity {
         	Intent intent = new Intent();
             switch (msg.what) {
             case GO_HOME:
-                intent.setClass(StartActivity.this, MainActivity.class);
+                intent.setClass(StartActivity.this, Login.class);
                 startActivity(intent);
                 finish();
                 break;

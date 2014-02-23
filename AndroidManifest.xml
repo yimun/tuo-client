@@ -30,7 +30,7 @@
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="com.myapp.ui.MainActivity"
+            android:name="com.myapp.ui.Login"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
@@ -67,6 +67,18 @@
         <activity
             android:name="com.myapp.ui.ModifyInformation"
             android:label="@string/title_activity_modify_information"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.myapp.ui.EioDetail"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.myapp.ui.QuesLIst"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.myapp.ui.Result"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
     </application>

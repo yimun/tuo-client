@@ -1,9 +1,15 @@
 package com.myapp.model;
 
+import java.io.Serializable;
+
 import com.myapp.base.BaseModel;
 
-public class Eio extends BaseModel {
+public class Eio extends BaseModel implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6202207462907898185L;
 	public final static String COL_ID = "id";
 	public final static String COL_TYPEID = "typeid";
 	public final static String COL_CLASSIFYID = "classifyid";

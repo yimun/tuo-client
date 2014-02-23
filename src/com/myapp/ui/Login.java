@@ -23,7 +23,7 @@ import com.myapp.base.C;
 import com.myapp.model.User;
 
 @SuppressLint("NewApi")
-public class MainActivity extends BaseUi {
+public class Login extends BaseUi {
 
 	private String user_account;
 	private String user_password;
@@ -48,6 +48,11 @@ public class MainActivity extends BaseUi {
 		
 		this.getWidget();
 		this.setEvent();
+		if(showDebugMsg) {
+			account.setText("james");
+			password.setText("james");
+			doTaskLogin();
+		}
 	}
 	
 	void getWidget(){
@@ -82,7 +87,7 @@ public class MainActivity extends BaseUi {
 				break;
 			case R.id.b_register:
 				Intent intent = new Intent();
-				intent.setClass(MainActivity.this,Register.class);
+				intent.setClass(Login.this,Register.class);
 				startActivity(intent);
 				break;
 

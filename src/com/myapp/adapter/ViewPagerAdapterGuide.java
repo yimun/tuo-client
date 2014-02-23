@@ -3,7 +3,7 @@ package com.myapp.adapter;
 import java.util.List;
 
 import com.myapp.R;
-import com.myapp.ui.MainActivity;
+import com.myapp.ui.Login;
 
 import android.app.Activity;
 import android.content.Context;
@@ -21,7 +21,7 @@ import android.widget.Button;
  * 
  * @{# ViewPagerAdapter.java Create on 2013-5-2 下午11:03:39
  * 
- *     class desc: 引导页面适配�?
+ *     class desc: 引导页面适配�?
  * 
  *     <p>
  *     Copyright: Copyright(c) 2013
@@ -44,7 +44,7 @@ public class ViewPagerAdapterGuide extends PagerAdapter {
 		this.activity = activity;
 	}
 
-	// �?��arg1位置的界�?
+	// �?��arg1位置的界�?
 	@Override
 	public void destroyItem(View arg0, int arg1, Object arg2) {
 		((ViewPager) arg0).removeView(views.get(arg1));
@@ -54,7 +54,7 @@ public class ViewPagerAdapterGuide extends PagerAdapter {
 	public void finishUpdate(View arg0) {
 	}
 
-	// 获得当前界面�?
+	// 获得当前界面�?
 	@Override
 	public int getCount() {
 		if (views != null) {
@@ -63,7 +63,7 @@ public class ViewPagerAdapterGuide extends PagerAdapter {
 		return 0;
 	}
 
-	// 初始化arg1位置的界�?
+	// 初始化arg1位置的界�?
 	@Override
 	public Object instantiateItem(View arg0, int arg1) {
 		((ViewPager) arg0).addView(views.get(arg1), 0);
@@ -87,7 +87,7 @@ public class ViewPagerAdapterGuide extends PagerAdapter {
 
 	private void goHome() {
 		// 跳转
-		Intent intent = new Intent(activity, MainActivity.class);
+		Intent intent = new Intent(activity, Login.class);
 		activity.startActivity(intent);
 		activity.finish();
 	}
@@ -106,7 +106,7 @@ public class ViewPagerAdapterGuide extends PagerAdapter {
 		editor.commit();
 	}
 
-	// 判断是否由对象生成界�?
+	// 判断是否由对象生成界�?
 	@Override
 	public boolean isViewFromObject(View arg0, Object arg1) {
 		return (arg0 == arg1);

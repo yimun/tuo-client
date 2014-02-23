@@ -56,7 +56,7 @@ public class NoticeService extends BaseService {
 				while (runLoop) {
 					try {
 						// get notice
-						doTaskAsync(C.task.notice, C.api.notice);
+						doTaskAsync(C.task.noticeList, C.api.noticeList);
 						// sleep 30 seconds
 						Thread.sleep(30 * 1000L);
 					} catch (InterruptedException e) {

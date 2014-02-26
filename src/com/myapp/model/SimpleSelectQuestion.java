@@ -13,6 +13,7 @@ public class SimpleSelectQuestion extends BaseModel {
 	private String answerC;
 	private String answerD;
 	private String answerE;
+	private int myAnswer = -1;
 
 	public String getId() {
 		return id;
@@ -26,8 +27,8 @@ public class SimpleSelectQuestion extends BaseModel {
 	public void setEioid(String eioid) {
 		this.eioid = eioid;
 	}
-	public String getQuestionnum() {
-		return questionnum;
+	public int getQuestionnum() {
+		return Integer.valueOf(questionnum);
 	}
 	public void setQuestionnum(String questionnum) {
 		this.questionnum = questionnum;
@@ -38,35 +39,15 @@ public class SimpleSelectQuestion extends BaseModel {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-	public String getAnswerA() {
-		return answerA;
+	public String[] getAllAnswer() {
+		return new String[]{answerA,answerB,answerC,answerD,answerE};
 	}
-	public void setAnswerA(String answerA) {
-		this.answerA = answerA;
+	
+	public int getMyAnswer() {
+		return myAnswer;
 	}
-	public String getAnswerB() {
-		return answerB;
-	}
-	public void setAnswerB(String answerB) {
-		this.answerB = answerB;
-	}
-	public String getAnswerC() {
-		return answerC;
-	}
-	public void setAnswerC(String answerC) {
-		this.answerC = answerC;
-	}
-	public String getAnswerD() {
-		return answerD;
-	}
-	public void setAnswerD(String answerD) {
-		this.answerD = answerD;
-	}
-	public String getAnswerE() {
-		return answerE;
-	}
-	public void setAnswerE(String answerE) {
-		this.answerE = answerE;
+	public void setMyAnswer(int myAnswer) {
+		this.myAnswer = myAnswer;
 	}
 
 }

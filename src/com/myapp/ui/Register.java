@@ -74,7 +74,7 @@ public class Register extends BaseUi {
 		r_account = (EditText)findViewById(R.id.et_account);
 		r_password1 = (EditText)findViewById(R.id.et_password1);
 		r_password2 = (EditText)findViewById(R.id.et_password2);
-		r_cancel = (ImageButton)findViewById(R.id.img_b_cancel);
+		r_cancel = (ImageButton)findViewById(R.id.img_b_begin);
 		
 		radioGroup = (RadioGroup)findViewById(R.id.radioGroup1);
 		rdb_boy = (RadioButton)findViewById(R.id.r_boy);
@@ -117,7 +117,7 @@ public class Register extends BaseUi {
 			case R.id.b_date:
 				operateDate();
 				break;
-			case R.id.img_b_cancel:
+			case R.id.img_b_begin:
 				r_cancel.setImageResource(R.drawable.arrow_left_pressed);
 				finish();
 				break;

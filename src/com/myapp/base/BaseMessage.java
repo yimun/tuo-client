@@ -29,6 +29,11 @@ public class BaseMessage {
 		return code + " | " + message + " | " + resultSrc;
 	}
 	
+	public boolean isSuccess() {
+		if(code==null)
+			return false;
+		return code.equalsIgnoreCase("10000");
+	}
 	public String getCode () {
 		return this.code;
 	}

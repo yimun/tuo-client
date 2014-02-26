@@ -74,7 +74,7 @@
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
-            android:name="com.myapp.ui.QuesLIst"
+            android:name="com.myapp.ui.QuesList"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity

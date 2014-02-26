@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.myapp.R;
 import com.myapp.util.AppCache;
 import com.myapp.util.AppUtil;
+import com.myapp.view.ProgressDialog;
 
 public class BaseUi extends FragmentActivity {
 	
@@ -26,6 +27,7 @@ public class BaseUi extends FragmentActivity {
 	protected BaseTaskPool taskPool;
 	protected boolean showLoadBar = false;
 	protected boolean showDebugMsg = true;
+	private ProgressDialog progressDialog;
 	
 	/** Called when the activity is first created. */
 	@Override
@@ -137,18 +139,21 @@ public class BaseUi extends FragmentActivity {
 	}
 	
 	public void showLoadBar () {
-		LayoutInflater inflater = getLayoutInflater();
+		/*LayoutInflater inflater = getLayoutInflater();
 		View layout = inflater.inflate(R.layout.main_load, null);
 		layout.findViewById(R.id.main_load_bar).setVisibility(View.VISIBLE);
-		layout.findViewById(R.id.main_load_bar).bringToFront();
+		layout.findViewById(R.id.main_load_bar).bringToFront();*/
+		progressDialog = new ProgressDialog(this);
+		progressDialog.show();
 		showLoadBar = true;
 	}
 	
 	public void hideLoadBar () {
 		if (showLoadBar) {
-			LayoutInflater inflater = getLayoutInflater();
+			/*LayoutInflater inflater = getLayoutInflater();
 			View layout = inflater.inflate(R.layout.main_load, null);
-			layout.findViewById(R.id.main_load_bar).setVisibility(View.GONE);
+			layout.findViewById(R.id.main_load_bar).setVisibility(View.GONE);*/
+			progressDialog.dismiss();
 			showLoadBar = false;
 		}
 	}
@@ -247,7 +252,7 @@ public class BaseUi extends FragmentActivity {
 	}
 	
 	public void doTaskAsync (int taskId, String taskUrl) {
-		showLoadBar();
+		//showLoadBar();
 		taskPool.addTask(taskId, taskUrl, new BaseTask(){
 			@Override
 			public void onComplete (String httpResult) {

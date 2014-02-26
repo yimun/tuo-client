@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -11,6 +13,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +24,7 @@ import com.myapp.base.BaseMessage;
 import com.myapp.base.BaseUi;
 import com.myapp.base.C;
 import com.myapp.model.User;
+import com.myapp.util.AppUtil;
 
 @SuppressLint("NewApi")
 public class Login extends BaseUi {
@@ -35,6 +39,8 @@ public class Login extends BaseUi {
 	private TextView forget_password;
 	
 	private MyListener myListener;
+	private CheckBox cb_remember;
+	private SharedPreferences sp;
 	
 	
 	@Override
@@ -44,14 +50,15 @@ public class Login extends BaseUi {
 		if (BaseAuth.isLogin()) {
 			this.forward(SurveyCenter.class);
 		}
+		sp = AppUtil.getSharedPreferences(getContext());
 		setContentView(R.layout.activity_main);
 		
 		this.getWidget();
 		this.setEvent();
-		if(showDebugMsg) {
-			account.setText("james");
-			password.setText("james");
-			doTaskLogin();
+		if(sp.getBoolean("isSaved", false)) {
+			account.setText(sp.getString("name", null));
+			password.setText(sp.getString("pass", null));
+			cb_remember.setChecked(true);
 		}
 	}
 	
@@ -61,7 +68,7 @@ public class Login extends BaseUi {
 		this.register = (Button)findViewById(R.id.b_register);
 		this.login = (Button)findViewById(R.id.b_login);
 		this.forget_password = (TextView)findViewById(R.id.tv_forget_password);
-		
+		cb_remember = (CheckBox)findViewById(R.id.checkBox1);
 		this.myListener = new MyListener();
 		
 		this.user_account = this.account.getText().toString();
@@ -103,6 +110,7 @@ public class Login extends BaseUi {
 	}
 	
 	private void doTaskLogin() {
+		showLoadBar();
 		app.setLong(System.currentTimeMillis());
 		this.user_account = this.account.getText().toString();
 		this.user_password = this.password.getText().toString();
@@ -153,6 +161,13 @@ public class Login extends BaseUi {
 					// start service
 //					BaseService.start(this, NoticeService.class);
 					// turn to index
+					if(cb_remember.isChecked()){
+						Editor editor = sp.edit();
+						editor.putBoolean("isSaved", true);
+						editor.putString("name", user_account);
+						editor.putString("pass", user_password);
+						editor.commit();
+					}
 					forward(SurveyCenter.class);
 				}
 				break;

@@ -122,7 +122,7 @@ public class SurveyFragment1 extends BaseFragment implements OnPageChangeListene
 		case C.task.eioList:
 			try {
 				eioList.clear();
-				eioList = (ArrayList<Eio>) message.getResultList("Eio");
+				eioList.addAll((ArrayList<Eio>) message.getResultList("Eio"));
 				if(eioList.size()==0||eioList==null){
 					currentPage--;
 				} 

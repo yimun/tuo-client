@@ -30,7 +30,7 @@ public class BaseFragment extends Fragment {
 	}
 	
 	public void doTaskAsync (int taskId, int delayTime) {
-		this.showLoadBar();
+		//this.showLoadBar();
 		taskPool.addTask(taskId, new BaseTask(){
 			@Override
 			public void onComplete () {
@@ -44,7 +44,7 @@ public class BaseFragment extends Fragment {
 	}
 	
 	public void doTaskAsync (int taskId, String taskUrl) {
-		this.showLoadBar();
+		//this.showLoadBar();
 		taskPool.addTask(taskId, taskUrl, new BaseTask(){
 			@Override
 			public void onComplete (String httpResult) {
@@ -58,7 +58,7 @@ public class BaseFragment extends Fragment {
 	}
 	
 	public void doTaskAsync (int taskId, String taskUrl, HashMap<String, String> taskArgs) {
-		this.showLoadBar();
+		//this.showLoadBar();
 		taskPool.addTask(taskId, taskUrl, taskArgs, new BaseTask(){
 			@Override
 			public void onComplete (String httpResult) {

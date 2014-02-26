@@ -86,6 +86,7 @@ public class Result extends BaseUi {
 					toast("内容不能为空！");
 					return;
 				}
+				showLoadBar();
 				HashMap<String, String> urlParams = new HashMap<String, String>();
 				urlParams.put("eioId", eio.getId());
 				urlParams.put("content",content );

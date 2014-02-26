@@ -110,7 +110,7 @@ public class QuesList extends BaseUi implements OnClickListener{
 	}
 
 	void doTaskGetResult()  { // 提交并返回结果
-		
+		showLoadBar();
 		JSONObject object = new JSONObject();
 		for(int i=0;i < quesList.size();i++){
 			try {

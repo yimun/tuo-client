@@ -42,13 +42,13 @@ public class EioDetail extends BaseUi {
 		btn_begin.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				overlay(QuesList.class, getIntent().getExtras());
+				forward(QuesList.class, getIntent().getExtras());
 			}
 		});
 		btn_comment.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//TODO
+				overlay(EioComment.class,getIntent().getExtras());
 			}
 		});		
 		setData();

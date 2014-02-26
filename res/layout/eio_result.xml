@@ -27,7 +27,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:background="#1E1E1E"
-            android:src="@drawable/back_button" />
+            android:src="@drawable/button_toleft_activity" />
     </RelativeLayout>
 
     <ScrollView

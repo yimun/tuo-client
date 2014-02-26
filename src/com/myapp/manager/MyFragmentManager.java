@@ -52,5 +52,9 @@ public class MyFragmentManager {
 	public static void microBlogFriendsFragmentChange(FragmentManager fragmanager,Fragment fm){
 		fragmanager.beginTransaction().replace(R.id.friends_fragment_layout, fm).commit();
 	}
+	
+	public static void eioCommentFragmentChange(FragmentManager fragmanager,Fragment fm){
+		fragmanager.beginTransaction().replace(R.id.eiocomment_fragment_layout, fm).commit();
+	}
  
 }

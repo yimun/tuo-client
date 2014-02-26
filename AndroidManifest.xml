@@ -81,6 +81,10 @@
             android:name="com.myapp.ui.Result"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
+        <activity
+            android:name="com.myapp.ui.EioComment"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
     </application>
     <!-- For using network -->
     <uses-permission android:name="android.permission.INTERNET" />

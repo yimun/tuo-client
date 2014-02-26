@@ -180,7 +180,7 @@ public class SurveyFragment1 extends BaseFragment implements OnPageChangeListene
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// 此处传回来的position和mAdapter.getItemId()获取的一致;
-				Eio eio = eioList.get(position - 1); // position is start from 1,Why?
+				Eio eio = eioList.get(position - 1);// 因为自定义View添加了header，所以position从1开始
 				Bundle bd = new Bundle();
 				bd.putSerializable("Eio", eio);
 				((BaseUi)context).overlay(EioDetail.class,bd);

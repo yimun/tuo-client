@@ -37,7 +37,7 @@ public class Result extends BaseUi {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.eio_result1);
+		setContentView(R.layout.eio_result);
 		Bundle bd = getIntent().getExtras();
 		eioResult = (EioResult) bd.getSerializable("result");
 		eio = (Eio) bd.getSerializable("Eio");

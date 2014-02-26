@@ -30,6 +30,7 @@ public final class C {
 		public static final String quesList         = "/eio/quesList";
 		public static final String eioDispose       = "/eio/dispose";
 		public static final String eioComment       = "/eio/comment";
+		public static final String listComment      = "/eio/listcomment";
 		public static final String eioStamp         = "/eio/stamp";
 		public static final String eioPraise        = "/eio/praise";
 		public static final String myEioList        = "/eio/myEioList";
@@ -65,6 +66,7 @@ public final class C {
 		public static final int quesList         = 1009;
 		public static final int eioDispose       = 1010;
 		public static final int eioComment       = 1011;
+		public static final int listComment      = 1027;
 		public static final int eioStamp         = 1012;
 		public static final int eioPraise        = 1013;
 		public static final int myEioList        = 1014;

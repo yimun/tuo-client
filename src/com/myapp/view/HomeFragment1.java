@@ -35,50 +35,51 @@ import com.myapp.model.Classify;
 import com.myapp.view.CenterLinearLayout.OnTouchListViewListener;
 
 @SuppressLint({ "ValidFragment", "NewApi" })
-public class HomeFragment1 extends BaseFragment implements OnClickListener{
-	
+public class HomeFragment1 extends BaseFragment implements OnClickListener {
+
 	private static final String TAG = "HomeFragment1";
-	
+
 	private Context context;
-	private View view; 
-	
+	private View view;
+
 	private FragmentManager fragmentManager;
 	private OnTouchListViewListener mOnTouchLister;
 
 	private ViewPager viewPager;
 	private ArrayList<Fragment> fragmentsList = new ArrayList<Fragment>();
 	private List<TextView> tvTitles = new ArrayList<TextView>();
-	
+
 	private HorizontalScrollView horizontalScrollView;
 	private LinearLayout linearLayout;
-	
+
 	private final int height = 70;
 	private int H_width;
-	
+
 	private ArrayList<Classify> classifyList = new ArrayList<Classify>();
 	private int length = 0;
 
 	public void setFragmentManager(FragmentManager fragmentManager) {
 		this.fragmentManager = fragmentManager;
 	}
-	
+
 	public HomeFragment1(Context context) {
 		// TODO Auto-generated constructor stub
 		super(context);
 		this.context = context;
-		Log.i(TAG, TAG+"-----HomeFragment1");
+		Log.i(TAG, TAG + "-----HomeFragment1");
 		try {
-			mOnTouchLister = (OnTouchListViewListener)this.context;
+			mOnTouchLister = (OnTouchListViewListener) this.context;
 		} catch (ClassCastException e) {
-			throw new ClassCastException(((Activity)context).toString() + "must implement OnbtnSendClickListener");//这条表示，你不在Activity里实现这个接口的话，我就要抛出异常咯。知道下一步该干嘛了吧？
+			throw new ClassCastException(((Activity) context).toString()
+					+ "must implement OnbtnSendClickListener");// 这条表示，你不在Activity里实现这个接口的话，我就要抛出异常咯。知道下一步该干嘛了吧？
 		}
 	}
-	
+
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
-		Log.i(TAG, TAG+"-----onActivityCreated");
+		Log.i(TAG, TAG + "-----onActivityCreated");
 		getWidget();
 		doTaskGetClassify();
 	}
@@ -86,19 +87,20 @@ public class HomeFragment1 extends BaseFragment implements OnClickListener{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		Log.i(TAG, TAG+"-----onCreateView");
+		Log.i(TAG, TAG + "-----onCreateView");
 		// TODO Auto-generated method stub
 		view = inflater.inflate(R.layout.home_fragment1, container, false);
 		return view;
-	}	
-	
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public void onTaskComplete(int taskId, BaseMessage message){
+	public void onTaskComplete(int taskId, BaseMessage message) {
 		switch (taskId) {
 		case C.task.classifyList:
 			try {
-				classifyList = (ArrayList<Classify>) message.getResultList("Classify");
+				classifyList = (ArrayList<Classify>) message
+						.getResultList("Classify");
 				length = classifyList.size();
 				initTitle();
 				setSelector(0);
@@ -110,7 +112,7 @@ public class HomeFragment1 extends BaseFragment implements OnClickListener{
 			break;
 		}
 	}
-	
+
 	public void doTaskGetClassify() {
 
 		try {
@@ -119,63 +121,116 @@ public class HomeFragment1 extends BaseFragment implements OnClickListener{
 			e.printStackTrace();
 		}
 	}
-	
-	public void getWidget(){
-		Log.i(TAG, TAG+"-----getWidget");
+
+	public void getWidget() {
+		Log.i(TAG, TAG + "-----getWidget");
 		linearLayout = (LinearLayout) view.findViewById(R.id.ll_main);
 		viewPager = (ViewPager) view.findViewById(R.id.pager);
-		horizontalScrollView = (HorizontalScrollView) view.findViewById(R.id.horizontalScrollView);
+		horizontalScrollView = (HorizontalScrollView) view
+				.findViewById(R.id.horizontalScrollView);
 	}
-	
+
 	private void initViewPager() {
-		 fragmentsList = new ArrayList<Fragment>();
-		 for (int i = 0; i < length; i++){
-			 Fragment surveyFragment = SurveyFragment1.newInstance(classifyList.get(i),context); 
-			 fragmentsList.add(surveyFragment);
-		 }
-		 viewPager.setAdapter(new FragmentPagerAdapterSurvey(fragmentManager,fragmentsList));
-		 
-		 viewPager.clearAnimation();
-		 viewPager.setOnPageChangeListener(new OnPageChangeListener() {
+		fragmentsList = new ArrayList<Fragment>();
+		for (int i = 0; i < length; i++) {
+			Fragment surveyFragment = SurveyFragment1.newInstance(
+					classifyList.get(i), context);
+			fragmentsList.add(surveyFragment);
+		}
+		viewPager.setAdapter(new FragmentPagerAdapterSurvey(fragmentManager,
+				fragmentsList));
 
-			 @Override
-			 public void onPageSelected(int arg0) {
-				 setSelector(arg0);
-			 }
+		viewPager.clearAnimation();
+		viewPager.setOnPageChangeListener(new OnPageChangeListener() {
 
-			 @Override
-			 public void onPageScrolled(int arg0, float arg1, int arg2) {
-				 if(arg0==0&&arg2==0&&(arg1>-0.0001&&arg1<=0.0001)){
-					 mOnTouchLister.onTouchListView();
-				 }else if(arg0==viewPager.getChildCount()-1 && arg2==0 && (arg1>-0.0001 && arg1<=0.0001)){
-					 mOnTouchLister.onTouchListView();
-				 }
-			 }
-			 
-			 @Override
-			 public void onPageScrollStateChanged(int arg0) {
+			private boolean isScrolling;
+			private int lastValue = 0;
 
-			 }
-		 });
-		 viewPager.setCurrentItem(0);
-	 }
-	
+			@Override
+			public void onPageSelected(int arg0) {
+
+				setSelector(arg0);
+				lastValue = 0;
+			}
+
+			@Override
+			public void onPageScrolled(int arg0, float arg1, int arg2) {
+				/*if(isScrolling && arg1==0.0){
+					BidirSlidingLayout.isFirstOrLast = true;
+				}else{
+					BidirSlidingLayout.isFirstOrLast = false;
+				}*/
+				
+				/*if (isScrolling) {  
+	                if (0 == lastValue && 0 == arg2 && (arg0==0)) {  
+	                    // 递减，向右侧滑动  
+	                	BidirSlidingLayout.isFirstOrLast = true;
+	                } else if (0 == lastValue && 0 == arg2 && (arg0 == length-1)) {  
+	                    // 递减，向右侧滑动  
+	                	BidirSlidingLayout.isFirstOrLast = true; 
+	                } else {  
+	                	BidirSlidingLayout.isFirstOrLast = false; 
+					lastValue = arg2;  
+	                }  
+	            }  */
+	            Log.i("meityitianViewPager",  
+	                    "meityitianViewPager onPageScrolled  last :arg2  ,"  
+	                            + lastValue + ":" + arg2);  
+				Log.w("test", "arg0=" + arg0 + "arg1=" + arg1 + "arg2=" + arg2);
+
+				if (arg0 == 0 && arg2 == 0
+						&& (arg1 > -0.0001 && arg1 <= 0.0001)) {
+					mOnTouchLister.onTouchListView();
+				} else if (arg0 == viewPager.getChildCount() - 1 && arg2 == 0
+						&& (arg1 > -0.0001 && arg1 <= 0.0001)) {
+					mOnTouchLister.onTouchListView();
+				}
+				
+				
+				if((arg0 == 0 ||(arg0 == viewPager.getChildCount() - 1)) && arg2 == 0)
+					lastValue ++;
+				else
+					lastValue = 0;
+				/*if (arg0 == 0 && arg2 == 0 && (arg1 > -0.0001 && arg1 <= 0.0001)
+						&&   lastValue==4) {
+					mOnTouchLister.onTouchListView();
+				} else if (arg2 == 0 && (arg1 > -0.0001 && arg1 <= 0.0001)
+						&& lastValue==4) {
+					mOnTouchLister.onTouchListView();
+				}*/
+				if(lastValue == 3)
+					mOnTouchLister.onTouchListView();
+			}
+
+			@Override
+			public void onPageScrollStateChanged(int arg0) {
+				if (arg0 == 1) {
+					isScrolling = true;
+				} else {
+					isScrolling = false;
+				}
+			}
+		});
+		viewPager.setCurrentItem(0);
+	}
+
 	/***
 	 * init title
 	 */
 	@SuppressWarnings("deprecation")
 	public void initTitle() {
-		
+
 		tvTitles.clear();
-		H_width = ((Activity)context).getWindowManager().getDefaultDisplay().getWidth() / 4;
-		
+		H_width = ((Activity) context).getWindowManager().getDefaultDisplay()
+				.getWidth() / 4;
+
 		for (int i = 0; i < length; i++) {
 			TextView textView = new TextView(context);
 			textView.setText(classifyList.get(i).getName());
 			textView.setTextSize(17);
 			textView.setTextColor(Color.BLACK);
 			textView.setWidth(H_width);
-			
+
 			textView.setHeight(height - 30);
 			textView.setGravity(Gravity.CENTER);
 			textView.setId(i);
@@ -183,7 +238,8 @@ public class HomeFragment1 extends BaseFragment implements OnClickListener{
 			tvTitles.add(textView);
 			// 分割线
 			View view = new View(context);
-			LinearLayout.LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+			LinearLayout.LayoutParams layoutParams = new LayoutParams(
+					LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 			layoutParams.width = 1;
 			layoutParams.height = height - 40;
 			layoutParams.gravity = Gravity.CENTER;
@@ -202,7 +258,7 @@ public class HomeFragment1 extends BaseFragment implements OnClickListener{
 		// TODO Auto-generated method stub
 		setSelector(v.getId());
 	}
-	
+
 	/***
 	 * 选中效果
 	 */
@@ -210,11 +266,14 @@ public class HomeFragment1 extends BaseFragment implements OnClickListener{
 	public void setSelector(int id) {
 		for (int i = 0; i < length; i++) {
 			if (id == i) {
-				Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.grouplist_item_bg_normal);
-				tvTitles.get(id).setBackgroundDrawable(new BitmapDrawable(bitmap));
+				Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
+						R.drawable.grouplist_item_bg_normal);
+				tvTitles.get(id).setBackgroundDrawable(
+						new BitmapDrawable(bitmap));
 				tvTitles.get(id).setTextColor(Color.RED);
 				if (i > 2) {
-					horizontalScrollView.smoothScrollTo((tvTitles.get(i).getWidth() * i - 180), 0);
+					horizontalScrollView.smoothScrollTo((tvTitles.get(i)
+							.getWidth() * i - 180), 0);
 				} else {
 					horizontalScrollView.smoothScrollTo(0, 0);
 				}

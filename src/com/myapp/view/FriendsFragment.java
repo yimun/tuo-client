@@ -19,8 +19,10 @@ import com.myapp.R;
 import com.myapp.base.BaseAuth;
 import com.myapp.base.BaseFragment;
 import com.myapp.base.BaseMessage;
+import com.myapp.base.BaseUi;
 import com.myapp.base.C;
 import com.myapp.manager.MyFragmentManager;
+import com.myapp.ui.FriendAdd;
 
 @SuppressLint({ "ValidFragment", "NewApi" })
 public class FriendsFragment extends BaseFragment implements OnClickListener {
@@ -37,6 +39,7 @@ public class FriendsFragment extends BaseFragment implements OnClickListener {
 	private static final String SHAREDPREFERENCES_NAME = "mySign";
 	private int day_now;
 	private int year_now;
+	private Button bt_addfriend;
 	private static final int FRIENDS_MICROBLOG =1;
 	
 	private static final String USERID = "id:"+BaseAuth.getUser().getId();
@@ -80,10 +83,13 @@ public class FriendsFragment extends BaseFragment implements OnClickListener {
 		sign = (Button)view.findViewById(R.id.b_sign);
 		userName = (TextView)view.findViewById(R.id.tv_friends_userName);
 		userName.setText(BaseAuth.getUser().getName());
+		bt_addfriend = (Button)((BaseUi)context).findViewById(R.id.img_b_addfriend);
+		bt_addfriend.setVisibility(View.VISIBLE);
 	}
 	
 	public void setClickEvent() {
 		sign.setOnClickListener(this);
+		bt_addfriend.setOnClickListener(this);
 	}
 	
 	@SuppressWarnings("static-access")
@@ -106,7 +112,11 @@ public class FriendsFragment extends BaseFragment implements OnClickListener {
 			// Ìá½»ÐÞ¸Ä
 			editor.commit();
 			sign.setClickable(false);
-			break;	
+			break;
+			
+		case R.id.img_b_addfriend:
+			((BaseUi)context).overlay(FriendAdd.class);
+			break;
 		}
 	}
 
@@ -149,4 +159,12 @@ public class FriendsFragment extends BaseFragment implements OnClickListener {
 		// TODO Auto-generated constructor stub
 		this.context = context;
 	}
+
+	@Override
+	public void onDestroyView() {
+		// TODO Auto-generated method stub
+		super.onDestroyView();
+		bt_addfriend.setVisibility(View.GONE);
+	}
+	
 }

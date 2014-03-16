@@ -17,7 +17,7 @@ public final class C {
 	
 	public static final class api {
 //		public static final String base				= "http://192.168.9.254:8007";
-		public static final String base				= "http://58.155.223.1:8007";
+		public static final String base				= "http://202.118.67.200:1234";
 		public static final String index			= "/index/index";
 		public static final String login			= "/index/login";
 		public static final String logout			= "/index/logout";

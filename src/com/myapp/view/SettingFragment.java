@@ -14,9 +14,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.myapp.R;
+import com.myapp.base.BaseAuth;
 import com.myapp.ui.About;
 import com.myapp.ui.Client;
 import com.myapp.ui.ContactUs;
+import com.myapp.ui.Login;
 
 
 @SuppressLint({ "ValidFragment", "NewApi" })
@@ -65,8 +67,9 @@ public class SettingFragment extends Fragment implements OnClickListener {
 			startActivity(intent);
 			break;
 		case R.id.b_logout:
-			
-			getActivity().finish();
+			BaseAuth.setLogin(false);
+			intent.setClass(getActivity(), Login.class);
+			startActivity(intent);
 			break;
 		}
 	}

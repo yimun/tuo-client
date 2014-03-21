@@ -6,7 +6,10 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -63,7 +66,7 @@ public class Login extends BaseUi {
 	}
 	
 	void getWidget(){
-		this.account = (EditText)findViewById(R.id.autotv_account);
+		this.account = (EditText)findViewById(R.id.et_account);
 		this.password = (EditText)findViewById(R.id.et_password);
 		this.register = (Button)findViewById(R.id.b_register);
 		this.login = (Button)findViewById(R.id.b_login);
@@ -79,6 +82,73 @@ public class Login extends BaseUi {
 		this.register.setOnClickListener(myListener);
 		this.login.setOnClickListener(myListener);
 		this.forget_password.setOnClickListener(myListener);
+		
+		this.password.addTextChangedListener(new TextWatcher(){
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before,
+					int count) {
+				// TODO Auto-generated method stub
+				Drawable password_blue = getResources().getDrawable(R.drawable.password_blue);
+				Drawable password_white = getResources().getDrawable(R.drawable.password_white);
+				
+				password_blue.setBounds(0, 0, password_blue.getMinimumWidth(), password_blue.getMinimumHeight());
+				password_white.setBounds(0, 0, password_white.getMinimumWidth(), password_white.getMinimumHeight());
+				
+				if(!password.getText().toString().isEmpty()) {
+					password.setCompoundDrawables(password_blue, null, null, null);
+				} else {
+					password.setCompoundDrawables(password_white, null, null, null);
+				}
+			}	
+		});
+		this.account.addTextChangedListener(new TextWatcher(){
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before,
+					int count) {
+				// TODO Auto-generated method stub
+				Drawable user_blue = getResources().getDrawable(R.drawable.user_blue);
+				Drawable user_white = getResources().getDrawable(R.drawable.user_white);
+				
+				user_blue.setBounds(0, 0, user_blue.getMinimumWidth(), user_blue.getMinimumHeight());
+				user_white.setBounds(0, 0, user_white.getMinimumWidth(), user_white.getMinimumHeight());
+				
+				if(!account.getText().toString().isEmpty()) {
+					account.setCompoundDrawables(user_blue, null, null, null);
+				} else {
+					account.setCompoundDrawables(user_white, null, null, null);
+				}
+			}
+			
+		});
+		
 	}
 	
 	class MyListener implements OnClickListener {

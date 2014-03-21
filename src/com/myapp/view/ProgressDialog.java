@@ -46,7 +46,7 @@ public class ProgressDialog {
 
 	public void show() {
 		if(!mDialog.isShowing())
-			mDialog.showAtLocation(context.getCurrentFocus(),
+			mDialog.showAtLocation(mDialogView,
 				Gravity.CENTER, LayoutParams.MATCH_PARENT,
 				LayoutParams.MATCH_PARENT);
 	}

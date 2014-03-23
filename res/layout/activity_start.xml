@@ -3,7 +3,7 @@
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="#0099CC"
     android:orientation="vertical"
     tools:context=".StartActivity" >
 
@@ -22,7 +22,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:textSize="40dp"
-        android:textStyle="italic|bold"
+        android:textStyle="bold"
         android:textColor="#ffffff"
         android:text="拖后腿" />
 

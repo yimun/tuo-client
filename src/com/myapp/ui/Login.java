@@ -103,7 +103,7 @@ public class Login extends BaseUi {
 					int count) {
 				// TODO Auto-generated method stub
 				Drawable password_blue = getResources().getDrawable(R.drawable.password_blue);
-				Drawable password_white = getResources().getDrawable(R.drawable.password_white);
+				Drawable password_white = getResources().getDrawable(R.drawable.password_grey);
 				
 				password_blue.setBounds(0, 0, password_blue.getMinimumWidth(), password_blue.getMinimumHeight());
 				password_white.setBounds(0, 0, password_white.getMinimumWidth(), password_white.getMinimumHeight());
@@ -135,7 +135,7 @@ public class Login extends BaseUi {
 					int count) {
 				// TODO Auto-generated method stub
 				Drawable user_blue = getResources().getDrawable(R.drawable.user_blue);
-				Drawable user_white = getResources().getDrawable(R.drawable.user_white);
+				Drawable user_white = getResources().getDrawable(R.drawable.user_grey);
 				
 				user_blue.setBounds(0, 0, user_blue.getMinimumWidth(), user_blue.getMinimumHeight());
 				user_white.setBounds(0, 0, user_white.getMinimumWidth(), user_white.getMinimumHeight());

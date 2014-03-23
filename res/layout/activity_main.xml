@@ -3,7 +3,7 @@
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/normal_background"
+    android:background="@drawable/backgrounds"
     android:orientation="vertical"
     tools:context=".Login" >
 
@@ -14,14 +14,15 @@
 
         <Button
             android:id="@+id/b_register"
-            android:layout_width="48dp"
-            android:layout_height="32dp"
+            android:layout_width="60sp"
+            android:layout_height="50dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/small_button"
+            android:layout_marginRight="0dp"
+            android:background="@drawable/register_selector"
             android:text="注册"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff" 
+           />
 
         <TextView
             android:id="@+id/textView1"
@@ -32,7 +33,7 @@
             android:gravity="center|center"
             android:text="拖后腿"
             android:textColor="#ffffff"
-            android:textSize="23sp" />
+            android:textSize="21sp" />
 
     </RelativeLayout>
 	
@@ -63,7 +64,7 @@
         	android:layout_marginLeft="9dp"
             android:layout_gravity="center|top"
             android:background="@drawable/shape_top"
-            android:drawableLeft="@drawable/user_white"
+            android:drawableLeft="@drawable/user_grey"
             android:ems="10"
             android:hint="账号" />
 
@@ -76,7 +77,7 @@
             android:background="@drawable/shape_bottom"
             android:ems="10"
             android:hint="密码"
-            android:drawableLeft="@drawable/password_white"
+            android:drawableLeft="@drawable/password_grey"
             android:textColor="#000000"
             android:inputType="textPassword" />
 
@@ -87,9 +88,9 @@
             android:layout_marginLeft="9dp"
             android:layout_marginRight="9dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/button"
+            android:background="@drawable/login_button"
             android:text="登 陆"
-            android:textColor="#ffffff"
+            android:textColor="@drawable/text_color"
             android:textSize="20dp" />
 
         <RelativeLayout

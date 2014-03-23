@@ -261,7 +261,7 @@
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
             android:layout_marginTop="14dp"
-            android:background="@drawable/button"
+            android:background="@drawable/login_button"
             android:gravity="center"
             android:padding="4dp"
             android:text="查看评论"

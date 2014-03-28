@@ -43,6 +43,7 @@ public class Login extends BaseUi {
 	
 	private MyListener myListener;
 	private CheckBox cb_remember;
+	//private TextView tremember;
 	private SharedPreferences sp;
 	
 	
@@ -72,6 +73,7 @@ public class Login extends BaseUi {
 		this.login = (Button)findViewById(R.id.b_login);
 		this.forget_password = (TextView)findViewById(R.id.tv_forget_password);
 		cb_remember = (CheckBox)findViewById(R.id.checkBox1);
+		//tremember=(TextView)findViewById(R.id.remember);
 		this.myListener = new MyListener();
 		
 		this.user_account = this.account.getText().toString();

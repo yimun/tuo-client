@@ -90,7 +90,7 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/login_button"
             android:text="登 陆"
-            android:textColor="@drawable/text_color"
+            android:textColor="@drawable/color12"
             android:textSize="20dp" />
 
         <RelativeLayout
@@ -119,6 +119,7 @@
                 android:textSize="15dp"
                 android:textColor="@drawable/text_color"
                 android:text="记住密码" />
+                
 
         </RelativeLayout>
 	    

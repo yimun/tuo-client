@@ -18,9 +18,10 @@
             android:layout_width="30dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="#1E1E1E"
-            android:src="@drawable/arrow_left" />
-
+            android:background="@drawable/back_button"/>
+     <!--   android:background="#1E1E1E"
+            android:src="@drawable/arrow_left"    -->
+		
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
@@ -111,27 +112,30 @@
 	                    android:id="@+id/radioGroup1"
 	                    android:layout_width="fill_parent"
 	                    android:layout_height="45dp"
+	                    android:paddingTop="6sp"
 	                    android:layout_alignParentLeft="true"
 	                    android:layout_alignParentRight="true"
 	                    android:background="@drawable/shape_bottom"
 	                    android:orientation="horizontal" >
-	
+
 	                    <RadioButton
 	                        android:id="@+id/r_boy"
 	                        android:layout_width="wrap_content"
 	                        android:layout_height="wrap_content"
 	                        android:layout_marginLeft="18dp"
+	                        android:button="@drawable/myradiobutton"
 	                        android:checked="true"
-	                        android:textColor="#000000"
-	                        android:text="男性" />
+	                        android:text="男性"
+	                        android:textColor="#000000" />
 	
 	                    <RadioButton
 	                        android:id="@+id/r_girl"
 	                        android:layout_width="wrap_content"
 	                        android:layout_height="wrap_content"
 	                        android:layout_marginLeft="100dp"
-	                        android:text="女性"
-	                        android:textColor="#000000" />
+	                        android:textColor="#000000" 
+	                        android:button="@drawable/myradiobutton"
+	                        android:text="女性"/>
 	
 	                </RadioGroup>
 	
@@ -167,7 +171,7 @@
 		                android:layout_height="40dp"
 		                android:layout_marginLeft="20dp"
 		                android:layout_marginTop="2.5dp"
-		                android:background="@drawable/small_shape"
+		                android:background="@drawable/datepacker_selector"
 		                android:drawableRight="@drawable/dropdown"
 		                android:text="1992-01-01" />
 	            </LinearLayout>
@@ -203,16 +207,10 @@
 	                    android:layout_height="40dp"
 	                    android:layout_weight="1"
 	                    android:layout_gravity="center_vertical"
-	                    android:background="@drawable/small_shape"
+	                     android:background="@drawable/shape_top"
 	                    android:ems="5" />
-	
-	                <LinearLayout
-	                    android:layout_width="wrap_content"
-	                    android:layout_height="20dp"
-	                    android:layout_gravity="center_vertical"
-	                    android:layout_weight="5" >
-	                </LinearLayout>
-	
+	                     
+	          
 	                <ImageButton
 	                    android:id="@+id/ib_verify"
 	                    android:layout_width="125dp"

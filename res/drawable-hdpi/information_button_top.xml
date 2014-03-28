@@ -3,10 +3,7 @@
         <item android:state_pressed="true" >
         <shape>
             <solid android:color="#8B8878" />
-                <corners 
-        android:topRightRadius="5dp"
-        android:topLeftRadius="5dp" /> 
-    <!-- 圆角，你也可以对不同的角设置不同的数值 -->
+            
  
 	
     
@@ -28,11 +25,6 @@
     <item>       
         <shape>
             <solid android:color="#f1f1f1" />
-                <corners 
-        android:topRightRadius="5dp"
-        android:topLeftRadius="5dp" /> 
-    <!-- 圆角，你也可以对不同的角设置不同的数值 -->
- 
 	
     <!-- 形状的填充色 -->
     <padding android:left="10dip"/>

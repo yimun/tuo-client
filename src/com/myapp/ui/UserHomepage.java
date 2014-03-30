@@ -10,8 +10,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.myapp.R;
@@ -25,7 +25,7 @@ import com.myapp.view.MicroBlogFragment;
 @SuppressLint("NewApi")
 public class UserHomepage extends BaseUi implements OnClickListener {
 	private ImageButton last_view;
-	private Button bad;
+	private ImageView bad;
 	private TextView userName;
 	
 	private int day;
@@ -71,7 +71,7 @@ public class UserHomepage extends BaseUi implements OnClickListener {
 	}
 	public void getWidgetId() {
 		last_view = (ImageButton)findViewById(R.id.b_last_view);
-		bad = (Button)findViewById(R.id.b_bad);
+		bad = (ImageView)findViewById(R.id.b_bad);
 		userName = (TextView)findViewById(R.id.tv_user_home_userName);
 		
 	}

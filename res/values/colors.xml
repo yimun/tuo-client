@@ -26,9 +26,10 @@
     <drawable name="color11">#E6E6E6</drawable> <!-- h1 -->
     <drawable name="color12">#666666</drawable>  <!-- he2 -->
     
+    <drawable name="color20">#3a3a3a</drawable>  <!-- he0 -->
+    <drawable name="color21">#1E1E1E</drawable>  <!-- he1 -->
+    
     <drawable name="color30">#ccff66</drawable>  <!-- q1 -->
     <drawable name="color31">#88aa44</drawable>  <!-- q2 -->
    
-    <drawable name="color20">#3a3a3a</drawable>  <!-- he0 -->
-    <drawable name="color21">#1E1E1E</drawable>  <!-- he1 -->
 </resources>

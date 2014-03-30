@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+ <item  android:state_checked="false"
+        android:state_pressed="false"
+        android:state_focused="false"
+        android:drawable="@drawable/searchradi_normal"
+        >
+    </item>
+  <item
+        android:state_focused="false"
+        android:state_checked="true"
+        android:state_pressed="false"
+        android:drawable="@drawable/searchradio_sel"
+        >
+    </item>
+  <item android:state_checked="true"
+        android:state_pressed="false"
+        android:state_focused="true"
+        android:drawable="@drawable/searchradio_sel"
+        >
+    </item>
+</selector>

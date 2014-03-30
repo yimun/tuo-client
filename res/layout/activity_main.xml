@@ -19,7 +19,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="0dp"
-            android:background="@drawable/register_selector"
+            android:background="@drawable/button_selector1"
             android:text="注册"
             android:textColor="#ffffff" 
            />
@@ -88,7 +88,7 @@
             android:layout_marginLeft="9dp"
             android:layout_marginRight="9dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/login_button"
+            android:background="@drawable/button1"
             android:text="登 陆"
             android:textColor="@drawable/color12"
             android:textSize="20dp" />

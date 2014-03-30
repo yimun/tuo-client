@@ -28,8 +28,8 @@
 	            android:layout_alignParentTop="true"
 	            android:layout_marginRight="5dp"
 	            android:layout_marginTop="5dp"
-	            android:background="@drawable/small_button"
-	            android:textColor="#ffffff"
+	            android:textSize="8dp"
+	            android:textColor="@drawable/color21"
 	            android:text="签到" />
 	    </RelativeLayout>
 

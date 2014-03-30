@@ -3,14 +3,14 @@
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e9e9e9"
+    android:background="@drawable/color10"
     android:orientation="vertical"
     tools:context=".UserHomepage" >
 
         <RelativeLayout
 	        android:layout_width="match_parent"
 	        android:layout_height="50dp"
-	        android:background="#1E1E1E" >
+	        android:background="@drawable/color21" >
 	
 	        <TextView
 	            android:id="@+id/textView1"
@@ -47,19 +47,19 @@
 		            android:layout_height="130dp"
 		            android:layout_alignParentLeft="true"
 		            android:layout_alignParentTop="true"
-		            android:src="#1e90ff" />
+		            android:src="@drawable/backgrounds" />
 		
-		        <Button
+		        <ImageView
 		            android:id="@+id/b_bad"
 		            android:layout_width="40dp"
-		            android:layout_height="28dp"
+		            android:layout_height="40dp"
 		            android:layout_alignParentRight="true"
 		            android:layout_alignParentTop="true"
 		            android:layout_marginRight="5dp"
 		            android:layout_marginTop="5dp"
-		            android:background="@drawable/small_button"
-		            android:textColor="#ffffff"
-		            android:text="踩" />
+		            android:src="@drawable/cai_selector"
+		            />
+		           <!--   android:background="@drawable/small_button"--> 
 		
 		    </RelativeLayout>
 

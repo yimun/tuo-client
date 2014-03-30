@@ -9,10 +9,6 @@
 <!--             <stroke -->
 <!--                 android:width="2dp" -->
 <!--                 android:color="#1E1E1E"  /> -->
-            <!-- 圆角 -->
-            <corners
-                android:radius="6dp" />
-
         </shape>
     </item>
 
@@ -24,10 +20,6 @@
         		android:startColor="#545454"  
         		android:endColor="#242424"   
         		android:angle="270"  />  
-
-            <corners 
-                android:radius="6dp"/>
-
         </shape>
     </item>
 

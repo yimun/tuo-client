@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#efebef"
-    tools:context=".About" >
+    tools:context=".About"
+    android:background="@drawable/backgrounds" >
     
     <RelativeLayout
 	        android:layout_width="match_parent"
@@ -35,10 +35,40 @@
 
     	</RelativeLayout>
 
-    <ImageView
-        android:id="@+id/imageView1"
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:src="@drawable/about" />
+        android:orientation="vertical" >
+	        
+        <ImageView
+        android:id="@+id/m_img_user"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
+        android:src="@drawable/logo1" />
+
+        <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:text="拖后腿" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="120dp"
+            android:text="Copyright ©2013-2014 XXX Corp. All Rights Reserved."
+            android:textSize="12dp" />
+
+    </LinearLayout>
 
 </LinearLayout>

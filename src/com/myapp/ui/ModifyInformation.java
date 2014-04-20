@@ -117,6 +117,7 @@ public class ModifyInformation extends BaseUi implements OnClickListener {
 			break;
 		case R.id.b_modify_save:
 			doTaskUpdateUserInfo();
+			finish();
 			break;
 		}	
 	}

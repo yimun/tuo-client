@@ -12,9 +12,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.myapp.R;
 import com.myapp.base.BaseAuth;
+import com.myapp.base.BaseUi;
 import com.myapp.ui.About;
 import com.myapp.ui.Client;
 import com.myapp.ui.ContactUs;
@@ -30,6 +32,7 @@ public class SettingFragment extends Fragment implements OnClickListener {
 	private Button about;
 	private Button contact;
 	private Button logout;
+	private ImageButton show_right_button;
 	
 	private FragmentManager fragmentManager;
 	
@@ -44,6 +47,7 @@ public class SettingFragment extends Fragment implements OnClickListener {
 		
 		getWidgetId();
 		setClickEvent();
+		
 
 	}
 	
@@ -70,6 +74,7 @@ public class SettingFragment extends Fragment implements OnClickListener {
 			BaseAuth.setLogin(false);
 			intent.setClass(getActivity(), Login.class);
 			startActivity(intent);
+			getActivity().finish();
 			break;
 		}
 	}
@@ -79,6 +84,8 @@ public class SettingFragment extends Fragment implements OnClickListener {
 		user_information = (Button)view.findViewById(R.id.b_user_information);
 		about = (Button)view.findViewById(R.id.b_about);
 		logout = (Button)view.findViewById(R.id.b_logout);
+		show_right_button = (ImageButton)((BaseUi)context).findViewById(R.id.show_right_button);
+		show_right_button.setVisibility(View.GONE);
 	}
 	public void setClickEvent() {
 		logout.setOnClickListener(this);
@@ -98,5 +105,12 @@ public class SettingFragment extends Fragment implements OnClickListener {
 	public SettingFragment(Context context) {
 		// TODO Auto-generated constructor stub
 		this.context = context;
+	}
+	
+	@Override
+	public void onDestroyView() {
+		// TODO Auto-generated method stub
+		super.onDestroyView();
+		show_right_button.setVisibility(View.VISIBLE);
 	}
 }

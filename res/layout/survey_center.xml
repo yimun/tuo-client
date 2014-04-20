@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bidir_sliding_layout"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:visibility="visible" >
 
     <LinearLayout
         android:id="@+id/left_menu"
@@ -11,7 +12,7 @@
         android:layout_alignParentLeft="true"
         android:background="#292929"
         android:orientation="vertical"
-        android:visibility="invisible" >
+        android:visibility="gone" >
 
         <com.myapp.view.RoundedImageView
             android:id="@+id/img_user"
@@ -149,7 +150,7 @@
         android:layout_alignParentRight="true"
         android:background="#292929"
         android:orientation="vertical"
-        android:visibility="invisible" >
+        android:visibility="gone" >
 
         <RelativeLayout
             android:layout_width="fill_parent"
@@ -165,12 +166,16 @@
 
             <Button
                 android:id="@+id/img_b_addfriend"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="24dp"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/small_button"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button2"
                 android:text="添加好友"
                 android:textColor="@color/white"
+                android:textSize="10dp"
                 android:visibility="gone" />
 
         </RelativeLayout>

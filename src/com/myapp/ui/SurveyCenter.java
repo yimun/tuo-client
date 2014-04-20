@@ -355,8 +355,8 @@ public class SurveyCenter extends BaseUi implements OnTouchListViewListener{
 		setting_frag.setFragmentManager(getSupportFragmentManager());
 		MyFragmentManager.myChangeFragment(getSupportFragmentManager(), setting_frag);
 		titleCenter.setText("设置");
-		titleRight.setText("带扩展列表");
-		listViewRight.setAdapter(null);
+//		titleRight.setText("带扩展列表");
+//		listViewRight.setAdapter(null);
 	}
 	
 	@Override  

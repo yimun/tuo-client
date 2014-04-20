@@ -34,7 +34,7 @@ public class BidirSlidingLayout extends RelativeLayout implements
 	/**
 	 * 滑动状态的一种，表示正在滑出右侧菜单。
 	 */
-	public static final int SHOW_RIGHT_MENU = 2;
+	private final int SHOW_RIGHT_MENU = 2;
 
 	/**
 	 * 滑动状态的一种，表示正在隐藏左侧菜单。
@@ -94,7 +94,7 @@ public class BidirSlidingLayout extends RelativeLayout implements
 	/**
 	 * 右侧菜单当前是显示还是隐藏。只有完全显示或隐藏时才会更改此值，滑动过程中此值无效。
 	 */
-	private boolean isRightMenuVisible;
+	public static boolean isRightMenuVisible;
 
 	/**
 	 * 是否正在滑动。

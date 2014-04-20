@@ -218,7 +218,7 @@
 	                    android:layout_marginRight="10dp"
 	                    android:layout_gravity="center_vertical"
 	                    android:layout_weight="1"
-	                    android:background="#f1f1f1"
+	                    android:background="#fff"
 	                    android:src="@drawable/pic1" />
 	            </LinearLayout>
 	        </LinearLayout>
@@ -234,7 +234,7 @@
 	            android:layout_marginBottom="40dp"
 	            android:background="@drawable/button1"
 	            android:text="注册"
-	            android:textColor="@drawable/color12"
+	            android:textColor="@drawable/color13"
 	            android:textSize="20sp" />
 
 

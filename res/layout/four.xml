@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="60dp"
         android:background="@drawable/button1"
-        android:textColor="#ffffff"
+        android:textColor="@drawable/color13"
         android:textSize="20sp"
         android:text="开始体验" />
 

@@ -3,11 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+
 	    <com.myapp.view.SingleLayoutListView
-		     android:id="@+id/muserHomeListView"
-		     android:layout_width="match_parent"
-		     android:layout_height="match_parent"
-		     android:cacheColorHint="@android:color/transparent"
-		     android:fadingEdgeLength="0dp" 
-		     />
+	        android:id="@+id/muserHomeListView"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:cacheColorHint="@android:color/transparent"
+	        android:fadingEdgeLength="0dp"
+	        android:visibility="visible" />
+
 </LinearLayout>

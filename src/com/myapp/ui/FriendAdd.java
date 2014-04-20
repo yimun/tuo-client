@@ -45,14 +45,17 @@ public class FriendAdd extends BaseUi implements OnClickListener {
 	private void initView() {
 		bt_search = (RelativeLayout) findViewById(R.id.search);
 		bt_search.setOnClickListener(this);
-		edt_content = (EditText) findViewById(R.id.editText1);
+		edt_content = (EditText) findViewById(R.id.editContent);
 		lv = (ListView) findViewById(R.id.lv);
-		btn_back = (ImageButton) findViewById(R.id.img_b_back);
+		btn_back = (ImageButton) findViewById(R.id.ib_modify_to_friend);
 		btn_back.setOnClickListener(new View.OnClickListener() {
+
 			@Override
 			public void onClick(View v) {
+				// TODO Auto-generated method stub
 				doFinish();
 			}
+			
 		});
 		adapter = new ListAdapterRight(this, showlist);
 		lv.setAdapter(adapter);

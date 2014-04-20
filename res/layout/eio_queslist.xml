@@ -21,14 +21,16 @@
 
         <Button
             android:id="@+id/b_submit"
-            android:layout_width="48dp"
-            android:layout_height="32dp"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/small_button"
+            android:layout_marginRight="0dp"
+            android:background="@drawable/button_selector1"
             android:text="提交"
+            android:textSize="15sp"
             android:textColor="#ffffff" />
+
 
         <TextView
             android:id="@+id/textView1"

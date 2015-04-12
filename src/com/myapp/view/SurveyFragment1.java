@@ -93,17 +93,20 @@ public class SurveyFragment1 extends BaseFragment implements OnPageChangeListene
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
 		Log.i(TAG, TAG+"-----onActivityCreated");
-
-		doTaskGetEioList(currentPage++);
+		currentPage = 1;
+		mList.clear();
+		doTaskGetEioList(currentPage++); // 数据出错的原因，current读取后的状态值为2，读取下一页时返回数据是空
 	}
 
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		Log.i(TAG, TAG+"-----onCreateView");
-		// TODO Auto-generated method stub
+		Log.i(TAG,this.classify.getName() + "-----onCreateView mList.size=" + mList.size());
 		view = inflater.inflate(R.layout.survey_fragment1, container, false);
+		initView();
+		initViewPagers();
+		initDots();
 		return view;
 		
 	}	
@@ -111,9 +114,13 @@ public class SurveyFragment1 extends BaseFragment implements OnPageChangeListene
 	@Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "SurveyFragment1-----onDestroy");
+        Log.d(TAG, "SurveyFragment1-----onDestroy "+ this.classify.getName());
     }
-	
+	@Override
+	public void onResume(){
+		super.onResume();
+		Log.d(TAG, "SurveyFragment1-----onResume "+ this.classify.getName());
+	}
 	
 	@SuppressWarnings("unchecked")
 	@Override
@@ -127,9 +134,9 @@ public class SurveyFragment1 extends BaseFragment implements OnPageChangeListene
 					currentPage--;
 				} 
 				buildAppData(eioList);
-				initView();
+				/*initView();
 				initViewPagers();
-				initDots();
+				initDots();*/
 				doTaskFinish();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -154,7 +161,6 @@ public class SurveyFragment1 extends BaseFragment implements OnPageChangeListene
 				// TODO 下拉刷新
 				Log.e(TAG, "onRefresh");
 				currentPage = 1;
-
 				eioList.clear();
 				mList.clear();
 				doTaskGetEioList(currentPage++);
@@ -179,6 +185,9 @@ public class SurveyFragment1 extends BaseFragment implements OnPageChangeListene
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
+				Log.i(TAG,"onItemClicked item position="+position +", eiolist size=" + eioList.size());
+				if(position- 1 >= eioList.size())
+					return;
 				// 此处传回来的position和mAdapter.getItemId()获取的一致;
 				Eio eio = eioList.get(position - 1);// 因为自定义View添加了header，所以position从1开始
 				Bundle bd = new Bundle();
@@ -199,10 +208,16 @@ public class SurveyFragment1 extends BaseFragment implements OnPageChangeListene
 
 	        views = new ArrayList<View>();
 	        // 初始化引导图片列表
+	        int resId[] = {R.drawable.banner1,R.drawable.banner2,R.drawable.banner3,R.drawable.banner4};
+	        for(int id : resId){
+	        	ImageView iv = new ImageView(this.context);
+		        iv.setImageResource(id);
+		        views.add(iv);
+	        }
+	        
+	       /* views.add(inflater.inflate(R.layout.one, null));
 	        views.add(inflater.inflate(R.layout.one, null));
-	        views.add(inflater.inflate(R.layout.one, null));
-	        views.add(inflater.inflate(R.layout.one, null));
-	        views.add(inflater.inflate(R.layout.one, null));
+	        views.add(inflater.inflate(R.layout.one, null));*/
 
 	        // 初始化Adapter
 	        sViewAdapter = new ViewPagerAdapterSurveyImage(views);
@@ -253,19 +268,15 @@ public class SurveyFragment1 extends BaseFragment implements OnPageChangeListene
 	}
 	
 	public void doTaskFinish(){
+		if (mAdapter != null) {
+//			mAdapter.mList = mList;
+			mAdapter.notifyDataSetChanged();
+		}
 		switch(currentState){
 		case REFRESH_DATA_FINISH:
-			if (mAdapter != null) {
-				mAdapter.mList = mList;
-				mAdapter.notifyDataSetChanged();
-			}
 			mListView.onRefreshComplete(); // 下拉刷新完成
 			break;
 		case LOAD_DATA_FINISH:
-			if (mAdapter != null) {
-				mAdapter.mList = mList;
-				mAdapter.notifyDataSetChanged();
-			}
 			mListView.onLoadMoreComplete(); // 加载更多完成
 			break;
 		}
@@ -275,7 +286,7 @@ public class SurveyFragment1 extends BaseFragment implements OnPageChangeListene
 		for (int i = 0; i < eioList.size(); i++) {
 			AppInfo ai = new AppInfo();
 			ai.setAppIcon(BitmapFactory.decodeResource(getResources(),
-					R.drawable.eio_icon));
+					R.drawable.ic_launcher));
 			ai.setAppName(eioList.get(i).getTitle());
 			ai.setAppVer(eioList.get(i).getAuthor());
 			ai.setAppSize(eioList.get(i).getPublishtime());

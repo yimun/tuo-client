@@ -114,7 +114,7 @@ public class SurveyCenter extends BaseUi implements OnTouchListViewListener{
 		case C.task.fansList:
 			try {
 				listFriends.clear();
-				listFriends = (ArrayList<Fans>) message.getResultList("Fans");
+				listFriends.addAll((ArrayList<Fans>) message.getResultList("Fans"));
 				buildAppData1(listFriends);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -124,7 +124,7 @@ public class SurveyCenter extends BaseUi implements OnTouchListViewListener{
 		case C.task.noticeList:
 			try {
 				listNotice.clear();
-				listNotice = (ArrayList<Notice>) message.getResultList("Notice");
+				listNotice.addAll((ArrayList<Notice>) message.getResultList("Notice"));
 				buildAppData(listNotice);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -152,7 +152,7 @@ public class SurveyCenter extends BaseUi implements OnTouchListViewListener{
 		for (int i = 0; i < list_notice.size(); i++) {
 			ListRightInfo ai = new ListRightInfo();
 			ai.setListRightIcon(BitmapFactory.decodeResource(getResources(),
-					R.drawable.eio_icon));
+					R.drawable.friend_head));
 			ai.setListRightName(list_notice.get(i).getFromname());
 			ai.setListRightContent(list_notice.get(i).getContent());
 			listNoticeInfo.add(ai);
@@ -163,9 +163,9 @@ public class SurveyCenter extends BaseUi implements OnTouchListViewListener{
 		for (int i = 0; i < list_friends.size(); i++) {
 			ListRightInfo ai = new ListRightInfo();
 			ai.setListRightIcon(BitmapFactory.decodeResource(getResources(),
-					R.drawable.eio_icon));
+					R.drawable.friend_head));
 			ai.setListRightName(list_friends.get(i).getName());
-			ai.setListRightContent(list_friends.get(i).getScore());
+			ai.setListRightContent("×ÜµÃ·Ö£º"+list_friends.get(i).getScore());
 			listFriendsInfo.add(ai);
 		}
 	}

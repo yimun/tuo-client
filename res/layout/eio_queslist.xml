@@ -31,14 +31,14 @@
             android:textSize="15sp"
             android:textColor="#ffffff" />
 
-
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/textTitle"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:gravity="center|center"
+            android:maxEms="10"
             android:text="问卷名"
             android:textColor="#ffffff"
             android:textSize="23sp" />

@@ -66,14 +66,15 @@
                 android:layout_marginTop="10dp">
 
                 <EditText
-	        		 android:id="@+id/editText_feedback"
-	       			 android:layout_width="fill_parent"
-	       			 android:layout_height="fill_parent"
-	       			 android:ems="10"
-	       			 android:textSize="21sp"
-	       			 android:hint="请输入您对我们的建议或意见！"
-	       			 android:background="@drawable/shape_top"
-	       			 android:gravity="top"  >
+                    android:id="@+id/editText_feedback"
+                    android:layout_width="fill_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_top"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:hint="请输入您对我们的建议或意见！"
+                    android:textSize="18sp" >
 
         		<requestFocus />
    			 </EditText>

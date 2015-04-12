@@ -5,8 +5,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="18" />
+        android:minSdkVersion="11"
+        android:targetSdkVersion="21" />
 
     <application
         android:name="com.myapp.base.BaseApp"
@@ -17,7 +17,7 @@
         <activity
             android:name="com.myapp.ui.StartActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/ActivityTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,67 +27,67 @@
         <activity
             android:name="com.myapp.ui.Guide"
             android:label="@string/title_activity_guide"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/ActivityTheme" >
         </activity>
         <activity
             android:name="com.myapp.ui.Login"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/ActivityTheme" >
         </activity>
         <activity
             android:name="com.myapp.ui.Register"
             android:label="@string/title_activity_register"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/ActivityTheme" >
         </activity>
         <activity
             android:name="com.myapp.ui.SurveyCenter"
             android:label="@string/title_activity_survey_center"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/ActivityTheme" >
         </activity>
         <activity
             android:name="com.myapp.ui.UserHomepage"
             android:label="@string/title_activity_user_homepage"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/ActivityTheme" >
         </activity>
         <activity
             android:name="com.myapp.ui.Client"
             android:label="@string/title_activity_client"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/ActivityTheme" >
         </activity>
         <activity
             android:name="com.myapp.ui.ContactUs"
             android:label="@string/title_activity_contact_us"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/ActivityTheme" >
         </activity>
         <activity
             android:name="com.myapp.ui.About"
             android:label="@string/title_activity_about"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/ActivityTheme" >
         </activity>
         <activity
             android:name="com.myapp.ui.ModifyInformation"
             android:label="@string/title_activity_modify_information"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/ActivityTheme" >
         </activity>
         <activity
             android:name="com.myapp.ui.EioDetail"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/ActivityTheme" >
         </activity>
         <activity
             android:name="com.myapp.ui.QuesList"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/ActivityTheme" >
         </activity>
         <activity
             android:name="com.myapp.ui.Result"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/ActivityTheme" >
         </activity>
         <activity
             android:name="com.myapp.ui.EioComment"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/ActivityTheme" >
         </activity>
         <activity
             android:name="com.myapp.ui.FriendAdd"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/ActivityTheme" >
         </activity>
         
     </application>

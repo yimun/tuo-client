@@ -9,11 +9,13 @@ import org.json.JSONObject;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.myapp.R;
 import com.myapp.adapter.AdapterQuesList;
@@ -40,6 +42,7 @@ public class QuesList extends BaseUi implements OnClickListener{
 	private AlertDialog D_cancel;
 	private AlertDialog D_submit;
 	private AdapterQuesList adapter;
+	private TextView tvTitle;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,8 @@ public class QuesList extends BaseUi implements OnClickListener{
 		lv = (ListView)findViewById(R.id.listView1);
 		cancel = (ImageButton)findViewById(R.id.b_cancel);
 		submit = (Button)findViewById(R.id.b_submit);
+		tvTitle = (TextView)findViewById(R.id.textTitle);
+		tvTitle.setText(eio.getTitle());
 		
 		cancel.setOnClickListener(this);
 		submit.setOnClickListener(this);
@@ -99,6 +104,7 @@ public class QuesList extends BaseUi implements OnClickListener{
 	}
 
 	void doTaskGetQuesList() {
+//		showLoadBar();
 		HashMap<String, String> urlParams = new HashMap<String, String>();
 		urlParams.put("eioId", eio.getId());
 		try {
@@ -135,6 +141,7 @@ public class QuesList extends BaseUi implements OnClickListener{
 	@Override
 	public void onTaskComplete(int taskId, BaseMessage message) {
 		// TODO Auto-generated method stub
+		hideLoadBar();
 		super.onTaskComplete(taskId, message);
 		switch (taskId) {
 		case C.task.quesList:
@@ -145,6 +152,7 @@ public class QuesList extends BaseUi implements OnClickListener{
 					((ArrayList<SimpleSelectQuestion>)quesList).addAll(
 							(ArrayList<SimpleSelectQuestion>) message
 							.getResultList("SimpleSelectQuestion"));
+					Log.i("QuesList","list num=" + quesList.size());
 					adapter.notifyDataSetChanged();
 				} catch (Exception e) {
 					e.printStackTrace();

@@ -85,6 +85,7 @@ public class MicroBlogFragment extends BaseFragment {
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
 		initView();
+		currentPage = 1;
 		doTaskGetEioList(uiId, currentPage++);
 	}
 
@@ -153,19 +154,15 @@ public class MicroBlogFragment extends BaseFragment {
 	}
 
 	public void doTaskFinish() {
+		if (mAdapter != null) {
+			mAdapter.mList = mList;
+			mAdapter.notifyDataSetChanged();
+		}
 		switch (currentState) {
 		case REFRESH_DATA_FINISH:
-			if (mAdapter != null) {
-				mAdapter.mList = mList;
-				mAdapter.notifyDataSetChanged();
-			}
 			mListView.onRefreshComplete(); // 下拉刷新完成
 			break;
 		case LOAD_DATA_FINISH:
-			if (mAdapter != null) {
-				mAdapter.mList = mList;
-				mAdapter.notifyDataSetChanged();
-			}
 			mListView.onLoadMoreComplete(); // 加载更多完成
 			break;
 		}
@@ -175,7 +172,7 @@ public class MicroBlogFragment extends BaseFragment {
 		for (int i = 0; i < microBlogList.size(); i++) {
 			AppInfo ai = new AppInfo();
 			ai.setAppIcon(BitmapFactory.decodeResource(getResources(),
-					R.drawable.eio_icon));
+					R.drawable.friend_head));
 			ai.setAppName(microBlogList.get(i).getUsername());
 			ai.setAppVer(microBlogList.get(i).getContent());
 			ai.setAppSize(microBlogList.get(i).getUptime());

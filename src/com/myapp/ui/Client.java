@@ -104,7 +104,12 @@ public class Client extends BaseUi implements OnClickListener {
 		String nameStr = nickname.getText() + user.getName();
 		String signStr = sign.getText() + user.getSign();
 		String areaStr = area.getText() + user.getLocation();
-		String sexStr  = sex.getText() + user.getSex();
+		String sexStr = "";
+		if(Integer.valueOf(user.getSex()) == 0){
+			sexStr = sex.getText() + "Å®";
+		}else{
+			sexStr = sex.getText() + "ÄÐ";
+		}
 		String birthStr = birth.getText() + user.getBirthday();
 		nickname.setText(nameStr);
 		sign.setText(signStr);

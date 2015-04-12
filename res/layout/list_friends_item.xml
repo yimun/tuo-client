@@ -1,40 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" >
 
-    <ImageView
-        android:id="@+id/ivIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/image_desc"
-        android:src="@drawable/ic_launcher" />
-    
-   <LinearLayout
-        android:id="@+id/appInfo"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dip"
-        android:layout_toRightOf="@id/ivIcon"
-        android:orientation="vertical" >
+        android:layout_margin="8dp" >
 
-        <TextView
-            android:id="@+id/tvName"
+        <ImageView
+            android:id="@+id/ivIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/name"
-            android:textColor="#000000"
-            android:textSize="16sp" 
-            android:paddingTop="8dp"/>
+            android:contentDescription="@string/image_desc"
+            android:src="@drawable/friend_head" />
 
-        <TextView
-            android:id="@+id/tvContent"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/appInfo"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ver"
-            android:textColor="#666666"
-            android:textSize="13sp" />
+            android:layout_marginLeft="8dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="2dp"
+                android:text="@string/name"
+                android:textColor="@color/body2"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tvContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/ver"
+                android:textColor="@color/menu2"
+                android:textSize="15sp" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
 </RelativeLayout>

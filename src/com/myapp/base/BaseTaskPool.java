@@ -5,6 +5,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.myapp.util.AppClient;
 import com.myapp.util.HttpUtil;
@@ -80,9 +81,10 @@ public class BaseTaskPool {
 					if (this.taskUrl != null) {
 						// init app client
 						AppClient client = new AppClient(this.taskUrl);
+						/*Log.i("###Network type",""+HttpUtil.getNetType(context)); // 没必要使用
 						if (HttpUtil.WAP_INT == HttpUtil.getNetType(context)) {
 							client.useWap();
-						}
+						}*/
 						// http get
 						if (taskArgs == null) {
 							httpResult = client.get();
